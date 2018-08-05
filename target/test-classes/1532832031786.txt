@@ -1,0 +1,50 @@
+class G {
+  attribute a : String;
+  attribute strings : String[];
+  attribute i : Integer;
+  attribute j : Integer;
+  attribute d : int;
+  reference b : A;
+
+  operation c() : void
+}
+
+package com.java.parse.test {
+  class A {
+    attribute a : Integer;
+    attribute b : String;
+    attribute c : char[];
+    reference d : B oppositeOf a;
+    reference e : D;
+    reference f[*] : B oppositeOf a;
+
+    operation returnInteger() : Integer
+    operation returnString() : String
+    operation returnNothing() : void
+  }
+
+  class B extends A implements Serializable,Appendable {
+    attribute x : Integer[][];
+    attribute y : String[];
+    attribute z : double;
+    reference a[*] ordered : A oppositeOf d;
+    reference b[*] ordered : String[];
+
+    operation c() : String
+    operation append() : Appendable
+    operation append() : Appendable
+    operation append() : Appendable
+  }
+
+  ABSTRACT class C {
+  }
+
+  class D {
+    reference e[*] ordered : E oppositeOf d;
+  }
+
+  class E {
+    reference d[*] ordered : D oppositeOf e;
+  }
+}
+
